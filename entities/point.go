@@ -1,6 +1,6 @@
 package entities
 
-import "github.com/rpaloschi/dxf-go/core"
+import "github.com/NTSka/dxf-go/core"
 
 // Point Entity representation
 type Point struct {

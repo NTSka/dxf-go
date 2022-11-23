@@ -1,7 +1,7 @@
 package entities
 
 import (
-	"github.com/rpaloschi/dxf-go/core"
+	"github.com/NTSka/dxf-go/core"
 )
 
 // Entity all entities should implement this interface.

@@ -1,7 +1,7 @@
 package sections
 
 import (
-	"github.com/rpaloschi/dxf-go/core"
+	"github.com/NTSka/dxf-go/core"
 )
 
 const lockBit = 0x4

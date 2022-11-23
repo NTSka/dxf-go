@@ -1,9 +1,9 @@
 package sections
 
 import (
+	"github.com/NTSka/dxf-go/core"
+	"github.com/NTSka/dxf-go/entities"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/rpaloschi/dxf-go/core"
-	"github.com/rpaloschi/dxf-go/entities"
 	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"

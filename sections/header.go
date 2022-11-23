@@ -1,6 +1,6 @@
 package sections
 
-import "github.com/rpaloschi/dxf-go/core"
+import "github.com/NTSka/dxf-go/core"
 
 const tagACADVER = "$ACADVER"
 const tagDWGCODEPAGE = "$DWGCODEPAGE"

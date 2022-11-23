@@ -1,8 +1,8 @@
 package sections
 
 import (
-	"github.com/rpaloschi/dxf-go/core"
-	"github.com/rpaloschi/dxf-go/entities"
+	"github.com/NTSka/dxf-go/core"
+	"github.com/NTSka/dxf-go/entities"
 )
 
 // Block representation.

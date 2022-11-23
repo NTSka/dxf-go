@@ -1,6 +1,6 @@
 package entities
 
-import "github.com/rpaloschi/dxf-go/core"
+import "github.com/NTSka/dxf-go/core"
 
 // Line Entity representation
 type Line struct {

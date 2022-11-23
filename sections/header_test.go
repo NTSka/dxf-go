@@ -3,7 +3,7 @@ package sections
 import (
 	"testing"
 
-	"github.com/rpaloschi/dxf-go/core"
+	"github.com/NTSka/dxf-go/core"
 	"github.com/stretchr/testify/suite"
 	"strings"
 )

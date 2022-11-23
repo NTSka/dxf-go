@@ -1,7 +1,7 @@
 package sections
 
 import (
-	"github.com/rpaloschi/dxf-go/core"
+	"github.com/NTSka/dxf-go/core"
 )
 
 const verticalTextBit = 0x4

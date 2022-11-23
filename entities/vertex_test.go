@@ -1,7 +1,7 @@
 package entities
 
 import (
-	"github.com/rpaloschi/dxf-go/core"
+	"github.com/NTSka/dxf-go/core"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	"strings"
@@ -52,11 +52,11 @@ func (suite *VertexTestSuite) TestVertexAllAttribs() {
 			Transparency:  5,
 			ShadowMode:    CASTS,
 		},
-		Location:      core.Point{X: 1.1, Y: 1.2, Z: 1.3},
-		StartingWidth: 10.5,
-		EndWidth:      15.8,
-		Bulge:         11.2,
-		Id:            3,
+		Location:                 core.Point{X: 1.1, Y: 1.2, Z: 1.3},
+		StartingWidth:            10.5,
+		EndWidth:                 15.8,
+		Bulge:                    11.2,
+		Id:                       3,
 		CreatedByCurveFitting:    true,
 		CurveFitTangentDefined:   true,
 		SplineVertex:             true,

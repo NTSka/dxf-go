@@ -1,7 +1,7 @@
 package entities
 
 import (
-	"github.com/rpaloschi/dxf-go/core"
+	"github.com/NTSka/dxf-go/core"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	"strings"
