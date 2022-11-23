@@ -1,7 +1,10 @@
 // Package core provides functions and data structures for basic DXF operations.
 package core
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
 // DataType is an interface for a DXF type.
 type DataType interface {
@@ -87,6 +90,45 @@ func (i Integer) Value() interface{} {
 // If other cannot be casted to an Integer, returns false.
 func (i Integer) Equals(other DxfElement) bool {
 	if iValue, ok := other.(*Integer); ok {
+		return i.value == iValue.value
+	}
+	return false
+}
+
+// BigInteger DataType implementation
+type BigInteger struct {
+	value int64
+}
+
+// NewBigInteger creates a new BigInteger object with the provided value as a string
+func NewBigInteger(value string) (DataType, error) {
+	returnValue := new(BigInteger)
+	v, err := strconv.ParseInt(value, 10, 0)
+	returnValue.value = v
+	return returnValue, err
+}
+
+// NewBigIntegerValue creates a new BigInteger object with provided int.
+func NewBigIntegerValue(value int64) *BigInteger {
+	returnValue := new(BigInteger)
+	returnValue.value = value
+	return returnValue
+}
+
+// ToString returns a string representation of the value
+func (i BigInteger) ToString() string {
+	return fmt.Sprint(i.value)
+}
+
+// Value returns the encapsulated value
+func (i BigInteger) Value() interface{} {
+	return i.value
+}
+
+// Equals Compares two Integers for equality.
+// If other cannot be casted to an Integer, returns false.
+func (i BigInteger) Equals(other DxfElement) bool {
+	if iValue, ok := other.(*BigInteger); ok {
 		return i.value == iValue.value
 	}
 	return false

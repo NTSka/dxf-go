@@ -276,11 +276,11 @@ func init() {
 		groupCodeTypes[code] = NewString
 	}
 
-	for code := 10; code < 20; code++ {
+	for code := 10; code < 40; code++ {
 		groupCodeTypes[code] = NewFloat
 	}
 
-	for code := 20; code < 60; code++ {
+	for code := 40; code < 60; code++ {
 		groupCodeTypes[code] = NewFloat
 	}
 
@@ -298,6 +298,10 @@ func init() {
 
 	for code := 113; code < 150; code++ {
 		groupCodeTypes[code] = NewFloat
+	}
+
+	for code := 160; code < 170; code++ {
+		groupCodeTypes[code] = NewBigInteger
 	}
 
 	for code := 170; code < 180; code++ {
