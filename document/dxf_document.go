@@ -5,12 +5,13 @@ import (
 
 	"github.com/NTSka/dxf-go/core"
 	"github.com/NTSka/dxf-go/sections"
+	"github.com/NTSka/dxf-go/tables"
 )
 
 // DxfDocument the representation of a full dxf document.
 type DxfDocument struct {
 	Header   *sections.HeaderSection
-	Tables   *sections.TablesSection
+	Tables   *tables.TablesSection
 	Entities *sections.EntitiesSection
 	Blocks   sections.BlocksSection
 }
@@ -28,7 +29,7 @@ func DxfDocumentFromStream(stream io.Reader) (*DxfDocument, error) {
 	doc := new(DxfDocument)
 
 	doc.Header = new(sections.HeaderSection)
-	doc.Tables = new(sections.TablesSection)
+	doc.Tables = new(tables.TablesSection)
 	doc.Entities = new(sections.EntitiesSection)
 	doc.Blocks = make(sections.BlocksSection)
 
@@ -39,7 +40,7 @@ func DxfDocumentFromStream(stream io.Reader) (*DxfDocument, error) {
 			return nil
 		},
 		"TABLES": func(slice core.TagSlice) error {
-			section, err := sections.NewTablesSection(slice)
+			section, err := tables.NewTablesSection(slice)
 			doc.Tables = section
 			return err
 		},
@@ -60,7 +61,7 @@ func DxfDocumentFromStream(stream io.Reader) (*DxfDocument, error) {
 
 	stopTag := core.NewTag(0, core.NewStringValue("EOF"))
 	endOfChunk := core.NewTag(0, core.NewStringValue("ENDSEC"))
-	for _, sectionTags := range sections.SplitTagChunks(tags, stopTag, endOfChunk) {
+	for _, sectionTags := range tables.SplitTagChunks(tags, stopTag, endOfChunk) {
 		sectionType := sectionTags[1].Value.ToString()
 
 		if parserFunc, ok := sectionParsers[sectionType]; ok {

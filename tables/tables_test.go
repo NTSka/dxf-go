@@ -1,4 +1,4 @@
-package sections
+package tables
 
 import (
 	"github.com/NTSka/dxf-go/core"

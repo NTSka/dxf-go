@@ -1,4 +1,4 @@
-package sections
+package tables
 
 import (
 	"github.com/NTSka/dxf-go/core"
@@ -32,6 +32,7 @@ func (t Table) Equals(other core.DxfElement) bool {
 
 // TablesSection representation
 type TablesSection struct {
+	AppID     Table
 	Layers    Table
 	Styles    Table
 	LineTypes Table
@@ -42,7 +43,8 @@ func (t TablesSection) Equals(other core.DxfElement) bool {
 	if otherTable, ok := other.(*TablesSection); ok {
 		return t.Layers.Equals(otherTable.Layers) &&
 			t.Styles.Equals(otherTable.Styles) &&
-			t.LineTypes.Equals(otherTable.LineTypes)
+			t.LineTypes.Equals(otherTable.LineTypes) &&
+			t.AppID.Equals(otherTable.AppID)
 	}
 
 	return false
@@ -67,6 +69,11 @@ func NewTablesSection(tags core.TagSlice) (*TablesSection, error) {
 		"LTYPE": func(slice core.TagSlice) error {
 			lineTypeTables, err := NewLineTypeTable(slice)
 			tables.LineTypes = lineTypeTables
+			return err
+		},
+		"APPID": func(slice core.TagSlice) error {
+			appID, err := NewAppIDTable(slice)
+			tables.AppID = appID
 			return err
 		},
 	}
